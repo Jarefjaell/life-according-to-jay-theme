@@ -1,0 +1,32 @@
+{
+  "name": "life-according-to-jay",
+  "description": "A calm, writing-first editorial theme for Life According to Jay",
+  "version": "1.2.6",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Jakob Jarefjäll",
+    "email": "jakob@nlgroup.org"
+  },
+  "config": {
+    "posts_per_page": 12,
+    "image_sizes": {
+      "s": { "width": 300 },
+      "m": { "width": 600 },
+      "l": { "width": 1000 }
+    }
+  },
+  "custom": {
+    "Contact": "custom-contact.hbs",
+    "Writing": "custom-writing.hbs",
+    "Projects": "custom-projects.hbs"
+  },
+  "keywords": [
+    "editorial",
+    "writing",
+    "minimal",
+    "publication"
+  ]
+}

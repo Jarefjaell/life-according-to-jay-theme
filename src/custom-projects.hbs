@@ -1,0 +1,15 @@
+{{!< default}}
+
+{{#post}}
+<section class="section projects-page">
+    <header class="page-header">
+        <h1 class="page-title">{{title}}</h1>
+        {{#if custom_excerpt}}
+            <p class="projects-intro">{{custom_excerpt}}</p>
+        {{/if}}
+    </header>
+    <div class="projects-body">
+        {{content}}
+    </div>
+</section>
+{{/post}}

@@ -1,0 +1,15 @@
+{{!< default}}
+
+<section class="section tag-archive">
+    <div class="section-header">{{tag.name}}</div>
+    {{#if tag.description}}
+        <p class="tag-description">{{tag.description}}</p>
+    {{/if}}
+    <div class="article-list">
+        {{#foreach posts}}
+            {{> article-card}}
+        {{/foreach}}
+    </div>
+</section>
+
+{{pagination}}

@@ -1,0 +1,60 @@
+{{!< default}}
+
+{{!-- Masthead --}}
+<section class="section masthead">
+    <h1 class="masthead-title">{{@site.title}}</h1>
+    <p class="masthead-byline">{{@site.description}}</p>
+    <p class="masthead-intro">I write about systems, work, technology, and modern life. About the things that change how we think, how we organise, and how we make sense of what is happening around us.</p>
+</section>
+
+{{!-- Latest Writing --}}
+<section class="section">
+    <div class="section-header">Latest Writing</div>
+    <div class="article-list">
+        {{#foreach posts}}
+            {{> article-card}}
+        {{/foreach}}
+    </div>
+</section>
+
+{{!-- Selected Writing (featured posts) --}}
+{{#get "posts" filter="featured:true" limit="3"}}
+    {{#if posts.length}}
+    <section class="section">
+        <div class="section-header">Selected Writing</div>
+        <div class="article-list">
+            {{#foreach posts}}
+                {{> article-card}}
+            {{/foreach}}
+        </div>
+    </section>
+    {{/if}}
+{{/get}}
+
+{{!-- The Why? --}}
+{{#get "pages" filter="slug:the-why" limit="1"}}
+    {{#foreach pages}}
+    <section class="the-why" id="the-why">
+        <div class="the-why-inner">
+            <h2>{{title}}</h2>
+            <div class="the-why-content">
+                {{content}}
+            </div>
+        </div>
+    </section>
+    {{/foreach}}
+{{/get}}
+
+{{!-- Topics --}}
+{{#get "tags" filter="visibility:public" limit="all" order="name asc"}}
+    {{#if tags.length}}
+    <section class="section">
+        <div class="section-header">Topics</div>
+        <div class="topics-grid">
+            {{#foreach tags}}
+                <a href="{{url}}" class="topic-label">{{name}}</a>
+            {{/foreach}}
+        </div>
+    </section>
+    {{/if}}
+{{/get}}

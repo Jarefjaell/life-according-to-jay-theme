@@ -1,0 +1,15 @@
+{{!< default}}
+
+<section class="section author-page">
+    <div class="section-header">Writing by {{primary_author.name}}</div>
+    {{#if primary_author.bio}}
+        <p class="author-bio">{{primary_author.bio}}</p>
+    {{/if}}
+    <div class="article-list">
+        {{#foreach posts}}
+            {{> article-card}}
+        {{/foreach}}
+    </div>
+</section>
+
+{{pagination}}
