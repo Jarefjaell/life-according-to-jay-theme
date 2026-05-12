@@ -14,7 +14,7 @@
     --color-burnt-clay: #C96E3D;
     --color-burnt-clay-text: #A45A2C;
 
-    /* Tier 2: Role tokens (everything in the rules below references these) */
+    /* Tier 2: Color role tokens (everything in the rules below references these) */
     --bg-page: var(--color-paper);
     --bg-band: var(--color-pale-sand);
     --bg-strong: var(--color-ink);
@@ -33,9 +33,13 @@
 
     --focus-ring: var(--color-burnt-clay-text);
 
-    /* Typography */
-    --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
-    --font-sans: 'Source Sans 3', 'Source Sans Pro', -apple-system, system-ui, sans-serif;
+    /* Tier 1: Face primitives (the only place font-family stacks live) */
+    --face-garamond:  'EB Garamond', Georgia, serif;
+    --face-plex-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+
+    /* Tier 2: Font role tokens (everything in the rules below references these) */
+    --font-body:   var(--face-garamond);
+    --font-chrome: var(--face-plex-mono);
 
     /* Layout */
     --content-width: 720px;
@@ -59,7 +63,7 @@ html {
 }
 
 body {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     font-weight: 400;
     color: var(--text-strong);
     background-color: var(--bg-page);
@@ -104,7 +108,7 @@ img {
 }
 
 .nav-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 1.15rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -118,7 +122,7 @@ img {
 }
 
 .nav-links a {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     font-size: 0.88rem;
     font-weight: 400;
     color: var(--text-soft);
@@ -171,7 +175,7 @@ main {
 }
 
 .section-header {
-    font-family: var(--font-sans);
+    font-family: var(--font-chrome);
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--text-quiet);
@@ -195,7 +199,7 @@ main {
 }
 
 .masthead-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 2.75rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -205,7 +209,7 @@ main {
 }
 
 .masthead-byline {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     font-size: 1.05rem;
     font-weight: 300;
     color: var(--text-quiet);
@@ -244,7 +248,7 @@ main {
 }
 
 .article-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 1.45rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -254,7 +258,7 @@ main {
 }
 
 .article-meta {
-    font-family: var(--font-sans);
+    font-family: var(--font-chrome);
     font-size: 0.82rem;
     font-weight: 400;
     color: var(--text-quiet);
@@ -263,7 +267,7 @@ main {
 }
 
 .article-complexity {
-    font-family: var(--font-sans);
+    font-family: var(--font-chrome);
     font-size: 0.82rem;
     font-weight: 500;
     color: var(--text-accent);
@@ -277,7 +281,7 @@ main {
 }
 
 .article-excerpt {
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     font-size: 0.95rem;
     font-weight: 300;
     color: var(--text-soft);
@@ -304,7 +308,7 @@ main {
 }
 
 .the-why h2 {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 1.65rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -336,7 +340,7 @@ main {
 }
 
 .topic-label {
-    font-family: var(--font-sans);
+    font-family: var(--font-chrome);
     font-size: 0.88rem;
     font-weight: 400;
     color: var(--text-soft);
@@ -373,7 +377,7 @@ main {
 }
 
 .article-page-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 2.4rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -406,7 +410,7 @@ main {
 }
 
 .article-body h2 {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 1.5rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -416,7 +420,7 @@ main {
 }
 
 .article-body h3 {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 1.25rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -429,7 +433,7 @@ main {
     margin: 40px 0;
     padding: 0 0 0 24px;
     border-left: 3px solid var(--accent);
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 1.25rem;
     font-style: italic;
     color: var(--text-soft);
@@ -521,7 +525,7 @@ main {
 }
 
 .article-body .kg-bookmark-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 1.1rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -572,6 +576,7 @@ main {
 }
 
 .author-note-label {
+    font-family: var(--font-chrome);
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--text-quiet);
@@ -612,7 +617,7 @@ main {
 }
 
 .page-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 2.2rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -680,7 +685,7 @@ main {
 }
 
 .error-code {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 5rem;
     font-weight: 400;
     color: var(--text-faint);
@@ -716,6 +721,7 @@ main {
 }
 
 .pagination a {
+    font-family: var(--font-chrome);
     font-size: 0.88rem;
     font-weight: 400;
     color: var(--text-soft);
@@ -746,6 +752,7 @@ main {
 }
 
 .footer-copy {
+    font-family: var(--font-chrome);
     font-size: 0.82rem;
     font-weight: 300;
     color: var(--text-quiet);
@@ -758,6 +765,7 @@ main {
 }
 
 .footer-links a {
+    font-family: var(--font-chrome);
     font-size: 0.82rem;
     font-weight: 400;
     color: var(--text-quiet);
@@ -775,6 +783,7 @@ main {
     font-weight: 300;
     color: var(--text-quiet);
     text-align: center;
+    font-family: var(--font-chrome);
 }
 
 
@@ -790,7 +799,7 @@ main {
 }
 
 .writing-header .page-title {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 2.2rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -814,7 +823,7 @@ main {
 }
 
 .filter-btn {
-    font-family: var(--font-sans);
+    font-family: var(--font-chrome);
     font-size: 0.82rem;
     font-weight: 400;
     color: var(--text-soft);
@@ -860,6 +869,7 @@ main {
 }
 
 .share-label {
+    font-family: var(--font-chrome);
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--text-quiet);
@@ -878,7 +888,7 @@ main {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: var(--font-sans);
+    font-family: var(--font-chrome);
     font-size: 0.82rem;
     font-weight: 400;
     color: var(--text-soft);
@@ -917,7 +927,7 @@ main {
 }
 
 .linkedin-conversation-heading {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 1.25rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -936,7 +946,7 @@ main {
 
 .linkedin-conversation-link {
     display: inline-block;
-    font-family: var(--font-sans);
+    font-family: var(--font-body);
     font-size: 0.88rem;
     font-weight: 500;
     color: var(--text-accent);
@@ -967,7 +977,7 @@ main {
 }
 
 .projects-body h2 {
-    font-family: var(--font-serif);
+    font-family: var(--font-body);
     font-size: 1.45rem;
     font-weight: 400;
     color: var(--text-strong);
@@ -981,7 +991,7 @@ main {
 }
 
 .projects-body h3 {
-    font-family: var(--font-sans);
+    font-family: var(--font-chrome);
     font-size: 0.78rem;
     font-weight: 600;
     color: var(--text-quiet);
@@ -1038,7 +1048,7 @@ main {
     background: var(--bg-strong);
     color: var(--text-on-strong);
     padding: 8px 16px;
-    font-family: var(--font-sans);
+    font-family: var(--font-chrome);
     font-size: 0.88rem;
     font-weight: 500;
     text-decoration: none;
