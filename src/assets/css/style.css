@@ -4,34 +4,39 @@
 
 /* ---------- Design Tokens ---------- */
 :root {
-    /* Tier 1: Color primitives (the only place hex values live) */
-    --color-paper: #F5F1E8;
-    --color-pale-sand: #E7DED1;
-    --color-warm-ash: #B3A797;
-    --color-warm-ash-text: #786C5D;
-    --color-graphite: #4B4A46;
-    --color-ink: #1B1A18;
-    --color-burnt-clay: #C96E3D;
-    --color-burnt-clay-text: #A45A2C;
+    /* Tier 1: Color primitives (the only place raw color values live) */
+    --color-cold-press: #EFEDE6;
+    --color-cold-press-deep: #E2DFD6;
+    --color-ink: #14171A;
+    --color-deep-wheat: #5A4A38;
+    --color-poppy: #C82E1B;
+    --color-poppy-deep: #A8240F;
+    --color-forest-pine: #1F3528;
+    --color-press-line: rgba(20, 23, 26, 0.18);
+
+    /* Reserved palette, declared but not yet referenced */
+    --color-rapeseed: #ECC02D;
+    --color-sydney-sky: #4296D6;
 
     /* Tier 2: Color role tokens (everything in the rules below references these) */
-    --bg-page: var(--color-paper);
-    --bg-band: var(--color-pale-sand);
+    --bg-page: var(--color-cold-press);
+    --bg-band: var(--color-cold-press-deep);
+    --bg-band-strong: var(--color-forest-pine);
     --bg-strong: var(--color-ink);
 
     --text-strong: var(--color-ink);
-    --text-soft: var(--color-graphite);
-    --text-quiet: var(--color-warm-ash-text);
-    --text-accent: var(--color-burnt-clay-text);
-    --text-faint: var(--color-pale-sand);
-    --text-on-strong: var(--color-paper);
+    --text-soft: var(--color-ink);
+    --text-quiet: var(--color-deep-wheat);
+    --text-accent: var(--color-poppy);
+    --text-faint: var(--color-cold-press-deep);
+    --text-on-strong: var(--color-cold-press);
 
-    --border-quiet: var(--color-pale-sand);
-    --border-mid: var(--color-warm-ash);
+    --border-quiet: var(--color-press-line);
+    --border-mid: var(--color-ink);
 
-    --accent: var(--color-burnt-clay);
+    --accent: var(--color-poppy);
 
-    --focus-ring: var(--color-burnt-clay-text);
+    --focus-ring: var(--color-poppy);
 
     /* Tier 1: Face primitives (the only place font-family stacks live) */
     --face-garamond:  'EB Garamond', Georgia, serif;
