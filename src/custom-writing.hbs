@@ -13,14 +13,7 @@
     {{#get "posts" limit="all" include="tags"}}
     <div class="article-list" id="writing-list">
         {{#foreach posts}}
-        <a href="{{url}}" class="article-item" data-tags="{{#foreach tags}}{{slug}} {{/foreach}}">
-            <h3 class="article-title">{{title}}</h3>
-            <div class="article-meta">
-                {{#primary_tag}}<span class="article-category">{{name}}</span> &bull; {{/primary_tag}}{{date format="D MMMM YYYY"}}
-            </div>
-            {{> complexity}}
-            <p class="article-excerpt">{{excerpt words="35"}}</p>
-        </a>
+            {{> article-card}}
         {{/foreach}}
     </div>
     {{/get}}

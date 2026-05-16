@@ -1,8 +1,13 @@
-<a href="{{url}}" class="article-item">
-    <h3 class="article-title">{{title}}</h3>
-    <div class="article-meta">
-        {{#primary_tag}}<span class="article-category">{{name}}</span> &bull; {{/primary_tag}}{{date format="D MMMM YYYY"}}
+<article class="article-item" data-tags="{{#foreach tags}}{{slug}} {{/foreach}}">
+    <div class="article-item-meta">
+        <span class="article-item-date">{{date format="D MMMM YYYY"}}</span>
+        {{> complexity}}
     </div>
-    {{> complexity}}
-    <p class="article-excerpt">{{excerpt words="35"}}</p>
-</a>
+    <div class="article-item-body">
+        <h2 class="article-item-title"><a href="{{url}}">{{title}}</a></h2>
+        <p class="article-item-excerpt">{{excerpt words="35"}}</p>
+    </div>
+    <div class="article-item-topic">
+        {{#primary_tag}}<span class="article-item-topic-line"><a href="{{url}}">{{name}}</a></span>{{/primary_tag}}
+    </div>
+</article>

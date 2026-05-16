@@ -1,27 +1,30 @@
 {{!< default}}
 
-{{!-- Masthead --}}
-<section class="section masthead">
-    <h1 class="masthead-title">{{@site.title}}</h1>
-    <p class="masthead-byline">{{@site.description}}</p>
-    <p class="masthead-intro">I write about systems, work, technology, and modern life. About the things that change how we think, how we organise, and how we make sense of what is happening around us.</p>
-</section>
+{{!-- Lead piece: most recent post --}}
+{{#get "posts" limit="1" include="tags"}}
+    {{#foreach posts}}
+    <section class="lead-piece">
+        <p class="label-rule">Most recent</p>
+        <div class="lead-meta">
+            <span class="lead-meta-date">{{date format="D MMMM YYYY"}}</span>
+            {{#primary_tag}}<span class="lead-meta-category"><a href="{{url}}">{{name}}</a></span>{{/primary_tag}}
+            {{#has tag="#deep"}}<span class="lead-meta-complexity">deep</span>{{/has}}
+            {{#has tag="#layered"}}<span class="lead-meta-complexity">layered</span>{{/has}}
+            {{#has tag="#light"}}<span class="lead-meta-complexity">light</span>{{/has}}
+        </div>
+        <h1 class="lead-title"><a href="{{url}}">{{title}}</a></h1>
+        <p class="lead-excerpt">{{excerpt words="50"}}</p>
+        <a href="{{url}}" class="lead-readon">Read on →</a>
+    </section>
+    {{/foreach}}
+{{/get}}
 
-{{!-- Latest Writing --}}
-<section class="section">
-    <div class="section-header">Latest Writing</div>
-    <div class="article-list">
-        {{#foreach posts}}
-            {{> article-card}}
-        {{/foreach}}
-    </div>
-</section>
-
-{{!-- Selected Writing (featured posts) --}}
-{{#get "posts" filter="featured:true" limit="3"}}
+{{!-- Selected writing: featured posts (lead piece may appear here if also featured;
+     accepted as a minor duplication risk pending a future filter-by-id refinement) --}}
+{{#get "posts" filter="featured:true" limit="6" include="tags"}}
     {{#if posts.length}}
     <section class="section">
-        <div class="section-header">Selected Writing</div>
+        <h2 class="label-rule">Selected writing</h2>
         <div class="article-list">
             {{#foreach posts}}
                 {{> article-card}}
@@ -31,30 +34,65 @@
     {{/if}}
 {{/get}}
 
-{{!-- The Why? --}}
-{{#get "pages" filter="slug:the-why" limit="1"}}
-    {{#foreach pages}}
-    <section class="the-why" id="the-why">
-        <div class="the-why-inner">
-            <h2>{{title}}</h2>
-            <div class="the-why-content">
-                {{content}}
-            </div>
-        </div>
-    </section>
-    {{/foreach}}
-{{/get}}
+{{!-- Closing row --}}
+<section class="closing-row">
+    <a href="{{@site.url}}/writing/" class="closing-link">Read all writing →</a>
+    <a href="{{@site.url}}/the-why/" class="closing-link">The Why? →</a>
+</section>
 
-{{!-- Topics --}}
-{{#get "tags" filter="visibility:public" limit="all" order="name asc"}}
-    {{#if tags.length}}
-    <section class="section">
-        <div class="section-header">Topics</div>
-        <div class="topics-grid">
-            {{#foreach tags}}
-                <a href="{{url}}" class="topic-label">{{name}}</a>
-            {{/foreach}}
-        </div>
-    </section>
-    {{/if}}
-{{/get}}
+{{!-- Beyond the Brief block --}}
+<section class="beyond-brief-block">
+    <p class="label-rule">Beyond the Brief</p>
+    <p class="btb-explainer">Independent work that started from curiosity, not a client requirement. Each of these exists because something needed building and no one was going to brief it.</p>
+    <div class="btb-marks">
+
+        <a href="/beyond-the-brief/" class="btb-mark">
+            <div class="btb-mark-logo">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 42 C 24 42, 6 30, 6 18 C 6 11, 11 7, 17 7 C 20 7, 22 9, 24 12 C 26 9, 28 7, 31 7 C 37 7, 42 11, 42 18 C 42 30, 24 42, 24 42 Z"/>
+                </svg>
+            </div>
+            <span class="btb-mark-name">HeartMend</span>
+        </a>
+
+        <a href="/beyond-the-brief/" class="btb-mark">
+            <div class="btb-mark-logo">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 4 C 24 12, 32 16, 32 26 C 32 36, 28 42, 24 42 C 20 42, 16 36, 16 26 C 16 20, 20 18, 22 14 C 23 12, 24 8, 24 4 Z"/>
+                </svg>
+            </div>
+            <span class="btb-mark-name">BurnerCookie</span>
+        </a>
+
+        <a href="/beyond-the-brief/" class="btb-mark">
+            <div class="btb-mark-logo">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14 12 C 10 12, 8 16, 8 22 C 8 28, 10 34, 14 36 C 16 37, 18 36, 19 33 C 21 30, 22 26, 22 22 C 22 16, 18 12, 14 12 Z M 8 14 L 4 16 L 8 17"/>
+                    <path d="M34 12 C 38 12, 40 16, 40 22 C 40 28, 38 34, 34 36 C 32 37, 30 36, 29 33 C 27 30, 26 26, 26 22 C 26 16, 30 12, 34 12 Z M 40 14 L 44 16 L 40 17"/>
+                </svg>
+            </div>
+            <span class="btb-mark-name">Hugin and Munin Stories</span>
+        </a>
+
+        <a href="/beyond-the-brief/" class="btb-mark">
+            <div class="btb-mark-logo">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 38 C 4 22, 14 12, 24 12 C 34 12, 44 22, 44 38 L 38 38 C 38 26, 32 18, 24 18 C 16 18, 10 26, 10 38 Z"/>
+                </svg>
+            </div>
+            <span class="btb-mark-name">Bifrost</span>
+        </a>
+
+        <a href="/beyond-the-brief/" class="btb-mark">
+            <div class="btb-mark-logo">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd">
+                    <path d="M11 14 C 11 11, 14 10, 16 11 C 17 8, 20 8, 21 11 C 23 9, 26 9, 27 11 C 29 9, 32 11, 32 14 Z"/>
+                    <path d="M14 14 L 30 14 L 30 20 C 36 20, 40 22.5, 40 27 C 40 31.5, 36 34, 30 34 L 30 42 L 14 42 Z M 30 24 C 33 24, 36 25, 36 27 C 36 29, 33 30, 30 30 Z"/>
+                </svg>
+            </div>
+            <span class="btb-mark-name">BrewTour.se</span>
+        </a>
+
+    </div>
+    <a href="/beyond-the-brief/" class="btb-readmore">See all projects →</a>
+</section>

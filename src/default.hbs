@@ -23,7 +23,10 @@
 
     <nav class="nav">
         <div class="nav-inner">
-            <a href="{{@site.url}}" class="nav-title">{{@site.title}}</a>
+            <div class="nav-brand">
+                <a href="{{@site.url}}" class="nav-title">{{@site.title}}</a>
+                <span class="nav-tagline">{{@site.description}}</span>
+            </div>
             {{navigation}}
             <button class="nav-mobile-toggle" aria-label="Menu">
                 <span></span>
@@ -41,6 +44,7 @@
             <span class="footer-copy">&copy; {{date format="YYYY"}} {{@site.title}} &middot; Blogs are not dead</span>
             <ul class="footer-links">
                 <li><a href="https://linkedin.com/in/im-jakob" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://github.com/Jarefjaell" target="_blank" rel="noopener">GitHub</a></li>
                 <li><a href="mailto:jay@lifeaccordingtojay.com">Email</a></li>
                 <li><a href="https://lifeaccordingtojay.com/content/files/2026/04/Jakob_Jarefjall_public-CV.pdf" target="_blank" rel="noopener">CV</a></li>
             </ul>
