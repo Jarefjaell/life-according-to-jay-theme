@@ -4,10 +4,17 @@
         {{> complexity}}
     </div>
     <div class="article-item-body">
-        <h2 class="article-item-title"><a href="{{url}}">{{title}}</a></h2>
+        <h2 class="article-item-title"><a href="{{url}}">{{title}}</a>{{#has tag="#new"}}<span class="marker new">new</span>{{/has}}{{#has tag="#anchor"}}<span class="marker anchor">anchor</span>{{/has}}</h2>
         <p class="article-item-excerpt">{{excerpt words="35"}}</p>
+        {{#has tag="#cookie-series"}}
+        <p class="article-item-cross-ref">Also at another depth: {{#has tag="#deep"}}<a href="/did-you-really-believe-the-nullification-of-cookies-came-without-a-price/">layered</a> &middot; <a href="/the-bit-you-were-not-told-about/">light</a>{{/has}}{{#has tag="#layered"}}<a href="/the-ripple-you-cannot-see/">deep</a> &middot; <a href="/the-bit-you-were-not-told-about/">light</a>{{/has}}{{#has tag="#light"}}<a href="/the-ripple-you-cannot-see/">deep</a> &middot; <a href="/did-you-really-believe-the-nullification-of-cookies-came-without-a-price/">layered</a>{{/has}}</p>
+        {{/has}}
     </div>
     <div class="article-item-topic">
         {{#primary_tag}}<span class="article-item-topic-line"><a href="{{url}}">{{name}}</a></span>{{/primary_tag}}
+        {{#has tag="#measurement-part-1"}}<span class="article-item-topic-line">part 1 of 4</span>{{/has}}
+        {{#has tag="#measurement-part-2"}}<span class="article-item-topic-line">part 2 of 4</span>{{/has}}
+        {{#has tag="#measurement-part-3"}}<span class="article-item-topic-line">part 3 of 4</span>{{/has}}
+        {{#has tag="#measurement-part-4"}}<span class="article-item-topic-line">part 4 of 4</span>{{/has}}
     </div>
 </article>

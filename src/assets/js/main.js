@@ -16,31 +16,45 @@
     }
 })();
 
-// Copy link button
+// Article actions: PDF (print) and Copy link with toast
 (function () {
-    var btn = document.getElementById('share-copy');
-    if (!btn) return;
+    var toast = document.getElementById('toast');
+    var toastTimeout;
 
-    btn.addEventListener('click', function () {
-        var url = btn.getAttribute('data-url');
-        navigator.clipboard.writeText(url).then(function () {
-            var label = btn.querySelector('.share-btn-label');
-            var original = label.textContent;
-            label.textContent = 'Copied';
-            btn.classList.add('copied');
-            setTimeout(function () {
-                label.textContent = original;
-                btn.classList.remove('copied');
-            }, 2000);
-        }).catch(function () {
-            var label = btn.querySelector('.share-btn-label');
-            var original = label.textContent;
-            label.textContent = 'Failed';
-            setTimeout(function () {
-                label.textContent = original;
-            }, 2000);
+    function showToast(message) {
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(function () {
+            toast.classList.remove('show');
+        }, 2200);
+    }
+
+    var pdfBtn = document.querySelector('.action[data-action="pdf"]');
+    if (pdfBtn) {
+        pdfBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.print();
         });
-    });
+    }
+
+    var copyBtn = document.querySelector('.action[data-action="copy-link"]');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            var url = copyBtn.getAttribute('data-url') || window.location.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(function () {
+                    showToast('Link copied');
+                }).catch(function () {
+                    showToast('Copy failed');
+                });
+            } else {
+                showToast('Copy failed');
+            }
+        });
+    }
 })();
 
 // LinkedIn conversation link

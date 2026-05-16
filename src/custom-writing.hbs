@@ -1,16 +1,17 @@
 {{!< default}}
 
-<section class="section writing-archive">
+<section class="writing-archive">
+    {{#get "posts" limit="all" include="tags"}}
     <header class="writing-header">
-        <h1 class="page-title">Writing</h1>
-        <p class="writing-intro">All published writing, across every topic.</p>
+        <h1>Writing</h1>
+        <p class="writing-subtitle">All published writing, across every topic.</p>
+        <p class="writing-dateline">{{posts.length}} essays<span class="sep">&middot;</span>most recent first<span class="sep">&middot;</span>updated continuously since 2024</p>
+        <p class="writing-explainer">Pieces are tagged light, layered, or deep, signalling cognitive weight rather than reading time.</p>
+        <div class="filter-bar" id="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+        </div>
     </header>
 
-    <div class="filter-bar" id="filter-bar">
-        <button class="filter-btn active" data-filter="all">All</button>
-    </div>
-
-    {{#get "posts" limit="all" include="tags"}}
     <div class="article-list" id="writing-list">
         {{#foreach posts}}
             {{> article-card}}
