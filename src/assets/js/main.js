@@ -3,17 +3,44 @@
     var toggle = document.querySelector('.nav-mobile-toggle');
     var links = document.querySelector('.nav-links');
 
-    if (toggle && links) {
-        toggle.addEventListener('click', function () {
-            links.classList.toggle('open');
-        });
+    if (!toggle || !links) return;
 
-        links.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function () {
-                links.classList.remove('open');
-            });
-        });
+    function setExpanded(open) {
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
+
+    function openNav() {
+        links.classList.add('open');
+        setExpanded(true);
+        var firstLink = links.querySelector('a');
+        if (firstLink) firstLink.focus();
+    }
+
+    function closeNav(returnFocus) {
+        links.classList.remove('open');
+        setExpanded(false);
+        if (returnFocus) toggle.focus();
+    }
+
+    toggle.addEventListener('click', function () {
+        if (links.classList.contains('open')) {
+            closeNav(false);
+        } else {
+            openNav();
+        }
+    });
+
+    links.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+            closeNav(false);
+        });
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && links.classList.contains('open')) {
+            closeNav(true);
+        }
+    });
 })();
 
 // Article actions: PDF (print) and Copy link with toast
@@ -103,6 +130,7 @@
         var btn = document.createElement('button');
         btn.className = 'filter-btn';
         btn.setAttribute('data-filter', slug);
+        btn.setAttribute('aria-pressed', 'false');
         btn.textContent = tagNames[slug] || slug;
         filterBar.appendChild(btn);
     });
@@ -114,8 +142,10 @@
 
         filterBar.querySelectorAll('.filter-btn').forEach(function (btn) {
             btn.classList.remove('active');
+            btn.setAttribute('aria-pressed', 'false');
         });
         e.target.classList.add('active');
+        e.target.setAttribute('aria-pressed', 'true');
 
         var visibleCount = 0;
         items.forEach(function (item) {
