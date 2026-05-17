@@ -11,6 +11,9 @@
         {{#if custom_excerpt}}
             <p class="article-byline">{{custom_excerpt}}</p>
         {{/if}}
+        {{#has tag="#cookie-series"}}
+        <p class="article-cross-ref">Also at another depth: {{#has tag="#deep"}}<a href="/did-you-really-believe-the-nullification-of-cookies-came-without-a-price/">layered</a> &middot; <a href="/the-bit-you-were-not-told-about/">light</a>{{/has}}{{#has tag="#layered"}}<a href="/the-ripple-you-cannot-see/">deep</a> &middot; <a href="/the-bit-you-were-not-told-about/">light</a>{{/has}}{{#has tag="#light"}}<a href="/the-ripple-you-cannot-see/">deep</a> &middot; <a href="/did-you-really-believe-the-nullification-of-cookies-came-without-a-price/">layered</a>{{/has}}</p>
+        {{/has}}
     </header>
 
     <div class="article-body">
@@ -59,7 +62,33 @@
             </div>
         </section>
 
-        <p class="closeout">If you made it down here, your mind deserves a break.</p>
+        {{#has tag="#measurement-part-1,#measurement-part-2,#measurement-part-3,#measurement-part-4"}}
+            {{#get "posts" filter="tag:[hash-measurement-part-1,hash-measurement-part-2,hash-measurement-part-3,hash-measurement-part-4]" order="published_at asc" limit="all" include="tags" as |seriesPosts|}}
+            <section class="series-coda">
+                <h2 class="series-coda-title">The measurement series</h2>
+                <ol class="series-coda-list">
+                    {{#foreach seriesPosts}}
+                        {{#match id "=" ../id}}
+                        <li class="series-coda-item current">
+                            <span class="series-coda-part">{{#has tag="#measurement-part-1"}}part 1 of 4{{/has}}{{#has tag="#measurement-part-2"}}part 2 of 4{{/has}}{{#has tag="#measurement-part-3"}}part 3 of 4{{/has}}{{#has tag="#measurement-part-4"}}part 4 of 4{{/has}}</span>
+                            <span class="series-coda-name">{{title}}</span>
+                            <span class="series-coda-here">you are reading this</span>
+                        </li>
+                        {{else}}
+                        <li class="series-coda-item">
+                            <a href="{{url}}">
+                                <span class="series-coda-part">{{#has tag="#measurement-part-1"}}part 1 of 4{{/has}}{{#has tag="#measurement-part-2"}}part 2 of 4{{/has}}{{#has tag="#measurement-part-3"}}part 3 of 4{{/has}}{{#has tag="#measurement-part-4"}}part 4 of 4{{/has}}</span>
+                                <span class="series-coda-name">{{title}}</span>
+                            </a>
+                        </li>
+                        {{/match}}
+                    {{/foreach}}
+                </ol>
+            </section>
+            {{/get}}
+        {{else}}
+            <p class="closeout">If you made it down here, your mind deserves a break.</p>
+        {{/has}}
 
     </div>
 

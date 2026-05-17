@@ -743,6 +743,27 @@ main {
     margin: 0;
 }
 
+.article-cross-ref {
+    margin-top: 14px;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: var(--type-chrome-large);
+    color: var(--text-quiet);
+    line-height: 1.5;
+    max-width: 640px;
+}
+
+.article-cross-ref a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--accent);
+    transition: opacity 0.15s ease;
+}
+
+.article-cross-ref a:hover {
+    opacity: 0.7;
+}
+
 /* Article body content */
 .article-body {
     max-width: var(--content-width);
@@ -1653,6 +1674,81 @@ textarea:focus-visible {
     color: var(--text-quiet);
     line-height: 1.5;
     max-width: 640px;
+}
+
+.series-coda {
+    margin-top: 56px;
+    max-width: 640px;
+}
+
+.series-coda-title {
+    font-family: var(--font-body);
+    font-size: var(--type-h2);
+    font-weight: 500;
+    color: var(--text-strong);
+    margin-bottom: 18px;
+    letter-spacing: -0.005em;
+    line-height: 1.25;
+}
+
+.series-coda-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.series-coda-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 18px;
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--border-quiet);
+}
+
+.series-coda-item:last-child {
+    border-bottom: none;
+}
+
+.series-coda-item > a {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+}
+
+.series-coda-part {
+    flex-shrink: 0;
+    width: 92px;
+    font-family: var(--font-chrome);
+    font-size: var(--type-chrome);
+    letter-spacing: 0.1em;
+    color: var(--text-quiet);
+}
+
+.series-coda-name {
+    font-family: var(--font-body);
+    font-size: var(--type-ui);
+    color: var(--text-strong);
+    line-height: 1.4;
+}
+
+.series-coda-item > a:hover .series-coda-name {
+    color: var(--accent);
+}
+
+.series-coda-item.current .series-coda-name {
+    color: var(--text-quiet);
+}
+
+.series-coda-here {
+    margin-left: auto;
+    font-family: var(--font-chrome);
+    font-size: var(--type-chrome);
+    letter-spacing: 0.08em;
+    color: var(--text-quiet);
 }
 
 
