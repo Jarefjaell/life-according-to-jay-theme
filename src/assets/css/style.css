@@ -127,6 +127,7 @@ img {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+    flex-wrap: wrap;
 }
 
 .nav-brand {
@@ -188,6 +189,10 @@ img {
     padding: 8px;
     flex-direction: column;
     gap: 5px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-mobile-toggle span {
@@ -603,48 +608,10 @@ main {
     border-bottom-color: var(--text-quiet);
 }
 
-/* Legacy global rules. Still used by complexity partial outside .article-item
-   (article page) and by the article page header meta. */
-.article-title {
-    font-family: var(--font-body);
-    font-size: var(--type-h2-card);
-    font-weight: 400;
-    color: var(--text-strong);
-    line-height: 1.3;
-    margin-bottom: 6px;
-    letter-spacing: -0.005em;
-}
-
-.article-meta {
-    font-family: var(--font-chrome);
-    font-size: var(--type-chrome);
-    font-weight: 400;
-    color: var(--text-quiet);
-    letter-spacing: 0.01em;
-    margin-bottom: 4px;
-}
-
-.article-complexity {
-    font-family: var(--font-chrome);
-    font-size: var(--type-chrome);
-    font-weight: 500;
-    color: var(--text-accent);
-    margin-bottom: 8px;
-    letter-spacing: 0.01em;
-    min-height: 1.2em;
-}
-
+/* Complexity partial renders an empty div when no complexity tag is set;
+   collapse it so it doesn't push layout. */
 .article-complexity:empty {
     display: none;
-}
-
-.article-excerpt {
-    font-family: var(--font-body);
-    font-size: var(--type-ui);
-    font-weight: 300;
-    color: var(--text-soft);
-    line-height: 1.6;
-    margin: 0;
 }
 
 
@@ -960,45 +927,6 @@ main {
 
 
 /* ============================================================
-   AUTHOR NOTE
-   ============================================================ */
-.author-note {
-    border-top: 1px solid var(--border-quiet);
-    padding: 40px 0;
-    max-width: var(--content-width);
-    margin: 0 auto;
-}
-
-.author-note-label {
-    font-family: var(--font-chrome);
-    font-size: var(--type-chrome);
-    font-weight: 600;
-    color: var(--text-quiet);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 12px;
-}
-
-.author-note p {
-    font-size: var(--type-secondary);
-    font-weight: 300;
-    color: var(--text-soft);
-    line-height: 1.65;
-}
-
-
-/* ============================================================
-   RELATED WRITING
-   ============================================================ */
-.related-writing {
-    border-top: 1px solid var(--border-quiet);
-    padding: 40px 0 56px;
-    max-width: var(--content-width);
-    margin: 0 auto;
-}
-
-
-/* ============================================================
    STATIC PAGES
    ============================================================ */
 .page-content {
@@ -1242,6 +1170,15 @@ main {
     max-width: 620px;
 }
 
+/* Anchor badge sitting inside the italic writing-explainer prose needs
+   tighter spacing and an upright font-style. */
+.writing-explainer .marker {
+    margin-left: 0;
+    margin-right: 4px;
+    vertical-align: 1px;
+    font-style: normal;
+}
+
 .filter-bar {
     display: flex;
     flex-wrap: wrap;
@@ -1302,108 +1239,6 @@ main {
 
 .article-item-cross-ref a:hover {
     opacity: 0.7;
-}
-
-
-/* ============================================================
-   SHARE BLOCK
-   ============================================================ */
-.share-block {
-    max-width: var(--content-width);
-    margin: 0 auto;
-    padding: 32px 0;
-    border-top: 1px solid var(--border-quiet);
-}
-
-.share-label {
-    font-family: var(--font-chrome);
-    font-size: var(--type-chrome);
-    font-weight: 600;
-    color: var(--text-quiet);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 16px;
-}
-
-.share-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.share-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-chrome);
-    font-size: var(--type-chrome-large);
-    font-weight: 400;
-    color: var(--text-soft);
-    background: transparent;
-    border: 1px solid var(--border-mid);
-    padding: 8px 16px;
-    cursor: pointer;
-    text-decoration: none;
-    letter-spacing: 0.01em;
-    transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.share-btn:hover {
-    color: var(--text-accent);
-    border-color: var(--text-accent);
-}
-
-.share-btn.copied {
-    color: var(--text-accent);
-    border-color: var(--text-accent);
-}
-
-.share-btn svg {
-    flex-shrink: 0;
-}
-
-
-/* ============================================================
-   LINKEDIN CONVERSATION BLOCK
-   ============================================================ */
-.linkedin-conversation {
-    max-width: var(--content-width);
-    margin: 0 auto;
-    padding: 40px 0;
-    border-top: 1px solid var(--border-quiet);
-}
-
-.linkedin-conversation-heading {
-    font-family: var(--font-body);
-    font-size: var(--type-h3);
-    font-weight: 400;
-    color: var(--text-strong);
-    margin-bottom: 12px;
-    line-height: 1.3;
-}
-
-.linkedin-conversation-text {
-    font-size: var(--type-secondary);
-    font-weight: 300;
-    color: var(--text-soft);
-    line-height: 1.65;
-    margin-bottom: 16px;
-    max-width: 560px;
-}
-
-.linkedin-conversation-link {
-    display: inline-block;
-    font-family: var(--font-body);
-    font-size: var(--type-ui);
-    font-weight: 500;
-    color: var(--text-accent);
-    text-decoration: none;
-    letter-spacing: 0.01em;
-    transition: color 0.2s ease;
-}
-
-.linkedin-conversation-link:hover {
-    color: var(--text-strong);
 }
 
 
@@ -1540,11 +1375,6 @@ textarea:focus-visible {
    RESPONSIVE
    ============================================================ */
 
-/* WhatsApp only on mobile */
-.share-btn-mobile {
-    display: none;
-}
-
 @media (max-width: 1024px) {
     .article-item {
         grid-template-columns: 100px 1fr 140px;
@@ -1597,6 +1427,17 @@ textarea:focus-visible {
         display: flex;
     }
 
+    /* Touch target floor (WCAG 2.5.5) */
+    .nav-links a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .action {
+        min-height: 44px;
+    }
+
     /* Article list adjustments */
     .article-item {
         grid-template-columns: 1fr;
@@ -1641,14 +1482,6 @@ textarea:focus-visible {
         align-items: flex-start;
     }
 
-    .share-btn-mobile {
-        display: inline-flex;
-    }
-
-    .share-btn-label {
-        display: none;
-    }
-
     /* Homepage components */
     .closing-row {
         gap: 20px;
@@ -1688,6 +1521,18 @@ textarea:focus-visible {
 
     .btb-marks {
         justify-content: center;
+    }
+}
+
+@media (max-width: 380px) {
+    :root {
+        --page-pad: 20px;
+        --type-h1-index: 34px;
+        --type-h1-article: 30px;
+    }
+
+    .nav-tagline {
+        max-width: 160px;
     }
 }
 
