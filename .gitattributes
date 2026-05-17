@@ -1,0 +1,34 @@
+# Normalize line endings.
+# Repo stores text as LF. Working tree gets platform-appropriate endings.
+
+* text=auto eol=lf
+
+# Force LF for shell scripts
+*.sh text eol=lf
+
+# Force CRLF for Windows scripts
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Explicit text formats
+*.md       text
+*.css      text
+*.js       text
+*.json     text
+*.hbs      text
+*.html     text
+*.svg      text
+
+# Binary files
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.webp  binary
+*.pdf   binary
+*.zip   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
